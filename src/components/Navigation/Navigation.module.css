@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 700;
+  color: #353535;
+}
+
+.link.active {
+  color: #ee3d3d;
+}
