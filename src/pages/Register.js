@@ -1,20 +1,22 @@
+import css from './Register.module.css';
+
 export const Register = () => {
   return (
     <div>
-      <h1>Registration page</h1>
+      <h1 className={css.title}>Registration page</h1>
 
-      <form>
-        <label>
+      <form className={css.form}>
+        <label className={css.label}>
           Name
           <input type="text" name="name" />
         </label>
 
-        <label>
+        <label className={css.label}>
           Email
           <input type="email" name="email" />
         </label>
 
-        <label>
+        <label className={css.label}>
           Password
           <input type="password" name="password" />
         </label>

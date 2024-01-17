@@ -1,0 +1,13 @@
+.title {
+  margin-bottom: 20px;
+}
+
+.form {
+  width: 320px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}

@@ -1,15 +1,17 @@
+import css from './Login.module.css';
+
 export const Login = () => {
   return (
     <div>
-      <h1>Login page</h1>
+      <h1 className={css.title}>Login page</h1>
 
-      <form>
-        <label>
+      <form className={css.form}>
+        <label className={css.label}>
           Email
           <input type="email" name="email" />
         </label>
 
-        <label>
+        <label className={css.label}>
           Password
           <input type="password" name="password" />
         </label>
