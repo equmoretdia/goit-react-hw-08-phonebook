@@ -1,23 +1,28 @@
+import { Routes, Route } from 'react-router-dom';
+import { lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import ContactForm from './ContactForm';
-import ContactList from './ContactList';
-import Filter from './Filter';
+import Layout from './Layout';
 
-import css from './App.module.css';
+const Home = lazy(() => import('../pages/Home'));
+const Contacts = lazy(() => import('../pages/Contacts'));
+const Login = lazy(() => import('../pages/Login'));
+const Register = lazy(() => import('../pages/Register'));
 
 const App = () => {
   return (
     <>
-      <section className={css.section}>
-        <h1 className={css.title}>Phonebook</h1>
-        <ContactForm />
-        <h2 className={css.title}>Contacts</h2>
-        <Filter />
-        <ContactList />
-      </section>
-
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="contacts" element={<Contacts />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+        {/* Default route for non-existent URLs */}
+        <Route path="*" element={<Home />} />
+      </Routes>
       <ToastContainer
         autoClose={3000}
         hideProgressBar={false}
