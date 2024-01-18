@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { addContact } from '../../redux/operations';
-import { selectItems, selectAddContactIsLoading } from '../../redux/selectors';
+import { addContact } from '../../redux/contacts & filter/operations';
+import {
+  selectItems,
+  selectAddContactIsLoading,
+} from '../../redux/contacts & filter/selectors';
 import LoaderInButton from '../LoaderInButton';
 
 import css from './ContactForm.module.css';

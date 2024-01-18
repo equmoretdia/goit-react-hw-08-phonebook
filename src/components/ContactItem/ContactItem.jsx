@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { deleteContact } from '../../redux/operations';
-import { selectDeletedContactId } from '../../redux/selectors';
+import { deleteContact } from '../../redux/contacts & filter/operations';
+import { selectDeletedContactId } from '../../redux/contacts & filter/selectors';
 import LoaderInButton from '../LoaderInButton';
 
 import css from './ContactItem.module.css';
