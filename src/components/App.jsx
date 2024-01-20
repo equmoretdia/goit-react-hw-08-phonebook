@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 // import { lazy } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -8,14 +10,23 @@ import { Home } from '../pages/Home';
 import { Contacts } from '../pages/Contacts';
 import { Login } from '../pages/Login';
 import { Register } from '../pages/Register';
-
 // const Home = lazy(() => import('../pages/Home'));
 // const Contacts = lazy(() => import('../pages/Contacts'));
 // const Login = lazy(() => import('../pages/Login'));
 // const Register = lazy(() => import('../pages/Register'));
+import { fetchCurrentUser } from '../redux/auth/operations';
+import { selectIsFetching } from '../redux/auth/selectors';
 
 const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const isFetching = useSelector(selectIsFetching);
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
+  return isFetching ? (
+    <b>Fetching current user...</b>
+  ) : (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>

@@ -71,10 +71,18 @@ export const fetchCurrentUser = createAsyncThunk(
   '/auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
+    // console.log(state);
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
       console.log('There is no token. Exit fetchCurrentUser');
+      toast.info(
+        'Please log in to use our service! If you are not registered yet, please register first.',
+        {
+          position: 'top-right',
+          theme: 'colored',
+        }
+      );
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
 
