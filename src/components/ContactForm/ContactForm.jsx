@@ -15,13 +15,13 @@ const ContactForm = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
   const isLoading = useSelector(selectAddContactIsLoading);
-  const [state, setState] = useState({ name: '', phone: '' });
-  const { name, phone } = state;
+  const [state, setState] = useState({ name: '', number: '' });
+  const { name, number } = state;
 
   const handleSubmit = e => {
     e.preventDefault();
-    // console.log(`name:${name}, number:${number}`);
-    // console.log(contacts);
+    console.log(`name:${name}, number:${number}`);
+    console.log(items);
     if (
       items.some(
         contact => contact.name.toLowerCase() === name.toLowerCase().trim()
@@ -31,8 +31,8 @@ const ContactForm = () => {
         position: 'top-right',
         theme: 'colored',
       });
-    } else if (items.some(contact => contact.phone === phone.trim())) {
-      toast.warn(`${phone} is already in your contacts`, {
+    } else if (items.some(contact => contact.number === number.trim())) {
+      toast.warn(`${number} is already in your contacts`, {
         position: 'top-right',
         theme: 'colored',
       });
@@ -42,7 +42,7 @@ const ContactForm = () => {
   };
 
   const formReset = () => {
-    setState({ name: '', phone: '' });
+    setState({ name: '', number: '' });
   };
 
   const handleChange = e => {
@@ -83,11 +83,11 @@ const ContactForm = () => {
         <input
           className={css.input}
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          title="number number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          value={phone}
+          value={number}
           onChange={handleChange}
         />
       </label>
