@@ -16,6 +16,7 @@ import { Register } from '../pages/Register';
 // const Register = lazy(() => import('../pages/Register'));
 import { fetchCurrentUser } from '../redux/auth/operations';
 import { selectIsFetching } from '../redux/auth/selectors';
+import { PrivateRoute } from './PrivateRoute';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="contacts" element={<Contacts />} />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute component={<Contacts />} redirectTo={'/login'} />
+            }
+          />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
