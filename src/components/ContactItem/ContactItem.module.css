@@ -8,6 +8,13 @@
   border-radius: 12px;
 }
 
+.buttons {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
 .button {
   display: block;
   width: 90px;
