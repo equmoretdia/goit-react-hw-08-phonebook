@@ -17,6 +17,7 @@ import { Register } from '../pages/Register';
 import { fetchCurrentUser } from '../redux/auth/operations';
 import { selectIsFetching } from '../redux/auth/selectors';
 import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -38,8 +39,21 @@ const App = () => {
               <PrivateRoute component={<Contacts />} redirectTo={'/login'} />
             }
           />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute component={<Login />} redirectTo={'/contacts'} />
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute
+                component={<Register />}
+                redirectTo={'/contacts'}
+              />
+            }
+          />
         </Route>
         {/* Default route for non-existent URLs */}
         <Route path="*" element={<Home />} />
