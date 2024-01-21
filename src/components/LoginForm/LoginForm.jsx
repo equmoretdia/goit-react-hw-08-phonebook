@@ -28,7 +28,7 @@ const LoginForm = () => {
   const handleLogIn = async () => {
     try {
       await dispatch(logIn(state));
-      toast.success('You have been logged in successfully', {
+      toast.success('Welcome! You have been logged in successfully', {
         position: 'top-right',
         theme: 'colored',
       });
@@ -39,35 +39,35 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
-      <h1 className={css.title}>Login page</h1>
+    <form className={css.form} onSubmit={handleSubmit}>
+      <label className={css.label}>
+        Email
+        <input
+          className={css.input}
+          type="email"
+          name="email"
+          required
+          value={email}
+          onChange={handleChange}
+        />
+      </label>
 
-      <form className={css.form} onSubmit={handleSubmit}>
-        <label className={css.label}>
-          Email
-          <input
-            type="email"
-            name="email"
-            required
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
+      <label className={css.label}>
+        Password
+        <input
+          className={css.input}
+          type="password"
+          name="password"
+          required
+          value={password}
+          onChange={handleChange}
+        />
+      </label>
 
-        <label className={css.label}>
-          Password
-          <input
-            type="password"
-            name="password"
-            required
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-
-        <button type="submit">Log In</button>
-      </form>
-    </div>
+      <button className={css.button} type="submit">
+        Log In
+      </button>
+    </form>
   );
 };
 

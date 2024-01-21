@@ -7,8 +7,10 @@
   display: inline-block;
   text-decoration: none;
   padding: 12px;
+  font-size: 18px;
   font-weight: 700;
-  color: #353535;
+  line-height: 1.5;
+  color: #383848;
 }
 
 .link.active {

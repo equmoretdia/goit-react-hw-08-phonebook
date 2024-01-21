@@ -18,8 +18,12 @@ const UserMenu = () => {
         width="32"
         className={css.avatar}
       />
-      <span className={css.name}>Wellcome, {user.name}</span>
-      <button type="button" onClick={() => dispatch(logOut())}>
+      <span className={css.name}>Welcome, {user.name}</span>
+      <button
+        className={css.button}
+        type="button"
+        onClick={() => dispatch(logOut())}
+      >
         Quit
       </button>
     </div>
