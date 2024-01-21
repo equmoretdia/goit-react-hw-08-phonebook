@@ -17,7 +17,7 @@
 .button {
   display: block;
   width: 90px;
-  padding: 10px 10px;
+  padding: 10px;
   font-size: 16px;
   font-weight: 700;
   color: #e3e3ee;
@@ -27,4 +27,10 @@
   background-color: #383848;
   border-radius: 12px;
   border: none;
+  transition: box-shadow 0.1s, transform 0.1s;
+}
+
+.button:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
 }

@@ -11,8 +11,9 @@
   font-weight: 700;
   line-height: 1.5;
   color: #383848;
+  transition: transform 0.1s;
 }
 
-.link.active {
-  color: #ee3d3d;
+.link:hover {
+  transform: scale(1.05);
 }

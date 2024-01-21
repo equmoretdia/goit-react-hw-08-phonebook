@@ -15,7 +15,7 @@ const UserMenu = () => {
       <img
         src={defaultAvatar}
         alt="funny smiling penguin avatar"
-        width="32"
+        width="38"
         className={css.avatar}
       />
       <span className={css.name}>Welcome, {user.name}</span>
