@@ -1,68 +1,17 @@
-import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
-import { addContact } from '../../redux/contacts & filter/operations';
-import {
-  selectItems,
-  selectAddContactIsLoading,
-} from '../../redux/contacts & filter/selectors';
 import LoaderInButton from '../LoaderInButton';
 
 import css from './ContactForm.module.css';
 
-const ContactForm = () => {
-  const dispatch = useDispatch();
-  const items = useSelector(selectItems);
-  const isLoading = useSelector(selectAddContactIsLoading);
-  const [state, setState] = useState({ name: '', number: '' });
-  const { name, number } = state;
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(`name:${name}, number:${number}`);
-    console.log(items);
-    if (
-      items.some(
-        contact => contact.name.toLowerCase() === name.toLowerCase().trim()
-      )
-    ) {
-      toast.warn(`${name} is already in your contacts`, {
-        position: 'top-right',
-        theme: 'colored',
-      });
-    } else if (items.some(contact => contact.number === number.trim())) {
-      toast.warn(`${number} is already in your contacts`, {
-        position: 'top-right',
-        theme: 'colored',
-      });
-    } else {
-      handleContactAddition();
-    }
-  };
-
-  const formReset = () => {
-    setState({ name: '', number: '' });
-  };
-
-  const handleChange = e => {
-    const { name, value } = e.currentTarget;
-    setState(prevState => ({ ...prevState, [name]: value }));
-  };
-
-  const handleContactAddition = async () => {
-    try {
-      await dispatch(addContact(state));
-      toast.success(`New contact "${name}" has been added successfully`, {
-        position: 'top-right',
-        theme: 'colored',
-      });
-      formReset();
-    } catch (rejectedValueOrSerializedError) {
-      console.log(rejectedValueOrSerializedError);
-    }
-  };
-
+const ContactForm = ({
+  name,
+  number,
+  handleChange,
+  handleSubmit,
+  isLoading,
+  buttonText,
+}) => {
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <label className={css.label} htmlFor="">
@@ -92,10 +41,19 @@ const ContactForm = () => {
         />
       </label>
       <button className={css.button} type="submit">
-        {isLoading ? <LoaderInButton /> : 'Add contact'}
+        {isLoading ? <LoaderInButton /> : buttonText}
       </button>
     </form>
   );
+};
+
+ContactForm.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  buttonText: PropTypes.string.isRequired,
 };
 
 export default ContactForm;

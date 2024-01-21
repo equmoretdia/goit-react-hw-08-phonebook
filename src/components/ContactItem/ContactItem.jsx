@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 import { deleteContact } from '../../redux/contacts & filter/operations';
 import { selectDeletedContactId } from '../../redux/contacts & filter/selectors';
-import ContactItemUpdate from 'components/ContactItemUpdate';
+import ContactUpdate from 'components/ContactUpdate';
 import LoaderInButton from '../LoaderInButton';
 import Modal from '../Modal';
 
@@ -52,7 +52,7 @@ const ContactItem = ({ id, name, number }) => {
       </li>
       {isModalOpen && (
         <Modal onClose={toggleModal}>
-          <ContactItemUpdate
+          <ContactUpdate
             contactId={id}
             currentName={name}
             currentNumber={number}
