@@ -54,9 +54,9 @@ export const deleteContact = createAsyncThunk(
 
 export const updateContact = createAsyncThunk(
   'contacts/updateContact',
-  async (id, thunkAPI) => {
+  async ({ id, name, number }, thunkAPI) => {
     try {
-      const response = await axios.patch(`/contacts/${id}`);
+      const response = await axios.patch(`/contacts/${id}`, { name, number });
       return response.data;
     } catch (error) {
       toast.error(`Sorry, error is occurred`, {
