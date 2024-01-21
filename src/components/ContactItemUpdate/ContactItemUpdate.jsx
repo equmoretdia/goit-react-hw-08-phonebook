@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { updateContact } from '../../redux/contacts & filter/operations';
-import { selectAddContactIsLoading } from '../../redux/contacts & filter/selectors';
+import { selectUpdateContactIsLoading } from '../../redux/contacts & filter/selectors';
 import LoaderInButton from '../LoaderInButton';
 
 import css from './ContactItemUpdate.module.css';
@@ -16,7 +16,7 @@ const ContactItemUpdate = ({
   onSave,
 }) => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectAddContactIsLoading);
+  const isLoading = useSelector(selectUpdateContactIsLoading);
   const [state, setState] = useState({
     id: contactId,
     name: currentName,

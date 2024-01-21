@@ -7,6 +7,8 @@ export const selectAddContactIsLoading = state =>
   state.contacts.isLoading.addContact;
 export const selectDeletedContactId = state =>
   state.contacts.isLoading.deletedContactId;
+export const selectUpdateContactIsLoading = state =>
+  state.contacts.isLoading.updateContact;
 export const selectError = state => state.contacts.error;
 
 export const selectFilterValue = state => state.filter;
