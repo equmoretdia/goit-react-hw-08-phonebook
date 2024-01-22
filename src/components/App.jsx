@@ -28,7 +28,12 @@ const App = () => {
   }, [dispatch]);
 
   return isFetching ? (
-    <Loader />
+    <Loader
+      height={'90'}
+      width={'90'}
+      colors={['#383848', '#383848']}
+      size={'l'}
+    />
   ) : (
     <>
       <Routes>

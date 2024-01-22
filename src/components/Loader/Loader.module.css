@@ -1,5 +1,17 @@
-.wrapper {
+.l {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m {
   padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.s {
   display: flex;
   justify-content: center;
 }

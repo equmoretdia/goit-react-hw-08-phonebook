@@ -25,7 +25,14 @@ const ContactList = () => {
   return (
     <>
       <ul className={css.wrapper}>
-        {isLoading && !error && <Loader />}
+        {isLoading && !error && (
+          <Loader
+            height={'60'}
+            width={'60'}
+            colors={['#383848', '#383848']}
+            size={'m'}
+          />
+        )}
         {filteredContacts.length > 0 &&
           filteredContacts.map(contact => (
             <ContactItem

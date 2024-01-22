@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { deleteContact } from '../../redux/contacts & filter/operations';
 import { selectDeletedContactId } from '../../redux/contacts & filter/selectors';
 import ContactUpdate from 'components/ContactUpdate';
-import LoaderInButton from '../LoaderInButton';
+import Loader from '../Loader';
 import Modal from '../Modal';
 
 import css from './ContactItem.module.css';
@@ -46,7 +46,16 @@ const ContactItem = ({ id, name, number }) => {
             type="button"
             onClick={handleContactDeletion}
           >
-            {deletedContactId === id ? <LoaderInButton /> : 'Delete'}
+            {deletedContactId === id ? (
+              <Loader
+                height={'16'}
+                width={'16'}
+                colors={['#e3e3ee', '#e3e3ee']}
+                size={'s'}
+              />
+            ) : (
+              'Delete'
+            )}
           </button>
         </div>
       </li>

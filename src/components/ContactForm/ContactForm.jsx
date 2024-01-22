@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import LoaderInButton from '../LoaderInButton';
+import Loader from '../Loader';
 
 import css from './ContactForm.module.css';
 
@@ -41,7 +41,16 @@ const ContactForm = ({
         />
       </label>
       <button className={css.button} type="submit">
-        {isLoading ? <LoaderInButton /> : buttonText}
+        {isLoading ? (
+          <Loader
+            height={'16'}
+            width={'16'}
+            colors={['#e3e3ee', '#e3e3ee']}
+            size={'s'}
+          />
+        ) : (
+          buttonText
+        )}
       </button>
     </form>
   );
