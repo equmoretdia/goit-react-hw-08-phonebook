@@ -1,12 +1,13 @@
 .container {
   display: block;
   min-height: calc(95vh);
+  padding: 20px 32px;
   background-image: linear-gradient(
       to bottom,
       rgb(210, 200, 200, 0.7),
       rgb(215, 200, 200, 0.2)
     ),
-    url(../img/background/home-page.jpg);
+    url(../img/background/register-page.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,9 +15,8 @@
 }
 
 .title {
-  text-align: center;
-  padding-top: 1.5em;
   font-size: 34px;
   font-weight: 700;
   line-height: 1.33;
+  margin-bottom: 20px;
 }

@@ -1,6 +1,6 @@
 import LoginForm from '../components/LoginForm';
 
-import css from './Login&Register.module.css';
+import css from './Login.module.css';
 
 export const Login = () => {
   return (
