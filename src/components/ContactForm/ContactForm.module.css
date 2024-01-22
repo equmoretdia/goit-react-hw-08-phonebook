@@ -10,7 +10,12 @@
   font-size: 18px;
   line-height: 1.5;
   margin: 0 auto;
-  max-width: 80%;
+}
+
+@media only screen and (min-width: 1200px) {
+  .label {
+    max-width: 80%;
+  }
 }
 
 .input {
