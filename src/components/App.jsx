@@ -1,24 +1,24 @@
 import { Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
-// import { lazy } from 'react';
+import { useEffect, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Layout from './Layout';
-import { Home } from '../pages/Home';
-import { Contacts } from '../pages/Contacts';
-import { Login } from '../pages/Login';
-import { Register } from '../pages/Register';
-import Loader from './Loader';
-// const Home = lazy(() => import('../pages/Home'));
-// const Contacts = lazy(() => import('../pages/Contacts'));
-// const Login = lazy(() => import('../pages/Login'));
-// const Register = lazy(() => import('../pages/Register'));
 import { fetchCurrentUser } from '../redux/auth/operations';
 import { selectIsFetching } from '../redux/auth/selectors';
-import { PrivateRoute } from './PrivateRoute';
-import { RestrictedRoute } from './RestrictedRoute';
+
+import Layout from './Layout';
+import Loader from './Loader';
+import PrivateRoute from './PrivateRoute';
+import RestrictedRoute from './RestrictedRoute';
+// import Home from '../pages/Home';
+// import Contacts from '../pages/Contacts';
+// import Login from '../pages/Login';
+// import Register from '../pages/Register';
+const Home = lazy(() => import('../pages/Home'));
+const Contacts = lazy(() => import('../pages/Contacts'));
+const Login = lazy(() => import('../pages/Login'));
+const Register = lazy(() => import('../pages/Register'));
 
 const App = () => {
   const dispatch = useDispatch();

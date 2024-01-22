@@ -2,7 +2,7 @@ import RegisterForm from '../components/RegisterForm';
 
 import css from './Register.module.css';
 
-export const Register = () => {
+const Register = () => {
   return (
     <div className={css.container}>
       <h1 className={css.title}>Registration page</h1>
@@ -10,3 +10,5 @@ export const Register = () => {
     </div>
   );
 };
+
+export default Register;
