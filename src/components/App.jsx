@@ -10,6 +10,7 @@ import { Home } from '../pages/Home';
 import { Contacts } from '../pages/Contacts';
 import { Login } from '../pages/Login';
 import { Register } from '../pages/Register';
+import Loader from './Loader';
 // const Home = lazy(() => import('../pages/Home'));
 // const Contacts = lazy(() => import('../pages/Contacts'));
 // const Login = lazy(() => import('../pages/Login'));
@@ -27,7 +28,7 @@ const App = () => {
   }, [dispatch]);
 
   return isFetching ? (
-    <b>Fetching current user...</b>
+    <Loader />
   ) : (
     <>
       <Routes>
