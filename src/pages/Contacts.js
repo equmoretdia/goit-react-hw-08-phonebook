@@ -7,11 +7,14 @@ import css from './Contacts.module.css';
 export const Contacts = () => {
   return (
     <section className={css.section}>
-      <h1 className={css.title}>Phonebook</h1>
-      <ContactAdd />
-      <h2 className={css.title}>Contacts</h2>
-      <Filter />
-      <ContactList />
+      <h1 className={css.title}>Contacts</h1>
+      <div className={css.container}>
+        <div className={css.service}>
+          <ContactAdd />
+          <Filter />
+        </div>
+        <ContactList />
+      </div>
     </section>
   );
 };

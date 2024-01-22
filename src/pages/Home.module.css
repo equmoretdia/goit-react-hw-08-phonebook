@@ -3,8 +3,8 @@
   min-height: calc(95vh);
   background-image: linear-gradient(
       to bottom,
-      rgb(210, 200, 200, 0.7),
-      rgb(215, 200, 200, 0.2)
+      rgb(210, 200, 200, 0.9),
+      rgb(215, 200, 200, 0.4)
     ),
     url(../img/background/home-page.jpg);
   background-size: 100%;

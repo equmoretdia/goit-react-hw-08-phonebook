@@ -1,16 +1,31 @@
 .section {
-  max-width: 500px;
-  padding: 40px 20px;
-  margin: 20px auto;
+  display: block;
+  min-height: calc(95vh);
   font-weight: 700;
-  background-color: #e3e3ee;
-  border: 1px solid #34345628;
-  box-shadow: 0px 1px 1px #00000024, 0px 1px 3px #0000001f,
-    0px 2px 1px #00000033;
-  border-radius: 16px;
+  background-image: linear-gradient(
+      to left,
+      rgb(210, 200, 200, 0.9),
+      rgb(215, 200, 200, 0.5)
+    ),
+    url(../img/background/contacts-page.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  padding-top: 20px;
+  justify-content: center;
+}
+
+.service {
+  width: 50%;
 }
 
 .title {
+  padding-top: 1em;
   text-align: center;
   font-size: 34px;
   line-height: 1.33;
