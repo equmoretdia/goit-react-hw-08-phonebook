@@ -1,13 +1,13 @@
 import RegisterForm from '../components/RegisterForm';
 
-import css from './Register.module.css';
+import { Container, Title } from './RegisterStyles';
 
 const Register = () => {
   return (
-    <div className={css.container}>
-      <h1 className={css.title}>Registration page</h1>
+    <Container>
+      <Title>Registration page</Title>
       <RegisterForm />
-    </div>
+    </Container>
   );
 };
 
