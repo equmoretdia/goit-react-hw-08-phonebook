@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 import { logIn } from '../../redux/auth/operations';
 
-import css from './LoginForm.module.css';
+import { Form, Label, Input, Button } from './LoginFormStyles';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -39,35 +39,29 @@ const LoginForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit}>
-      <label className={css.label}>
+    <Form onSubmit={handleSubmit}>
+      <Label>
         Email
-        <input
-          className={css.input}
+        <Input
           type="email"
           name="email"
           required
           value={email}
           onChange={handleChange}
         />
-      </label>
-
-      <label className={css.label}>
+      </Label>
+      <Label>
         Password
-        <input
-          className={css.input}
+        <Input
           type="password"
           name="password"
           required
           value={password}
           onChange={handleChange}
         />
-      </label>
-
-      <button className={css.button} type="submit">
-        Log In
-      </button>
-    </form>
+      </Label>
+      <Button type="submit">Log In</Button>
+    </Form>
   );
 };
 

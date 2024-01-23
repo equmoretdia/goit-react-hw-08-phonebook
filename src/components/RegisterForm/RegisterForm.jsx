@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { register } from '../../redux/auth/operations';
-import css from './RegisterForm.module.css';
+import { Form, Label, Input, Button } from './RegisterFormStyles';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -38,47 +38,39 @@ const RegisterForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit}>
-      <label className={css.label}>
+    <Form onSubmit={handleSubmit}>
+      <Label>
         Name
-        <input
-          className={css.input}
+        <Input
           type="text"
           name="name"
           required
           value={name}
           onChange={handleChange}
         />
-      </label>
-
-      <label className={css.label}>
+      </Label>
+      <Label>
         Email
-        <input
-          className={css.input}
+        <Input
           type="email"
           name="email"
           required
           value={email}
           onChange={handleChange}
         />
-      </label>
-
-      <label className={css.label}>
+      </Label>
+      <Label>
         Password
-        <input
-          className={css.input}
+        <Input
           type="password"
           name="password"
           required
           value={password}
           onChange={handleChange}
         />
-      </label>
-
-      <button className={css.button} type="submit">
-        Register
-      </button>
-    </form>
+      </Label>
+      <Button type="submit">Register</Button>
+    </Form>
   );
 };
 
