@@ -1,9 +1,9 @@
-import css from './Home.module.css';
+import { Container, Title } from './HomeStyles';
 
 const Home = () => (
-  <div className={css.container}>
-    <h1 className={css.title}>Welcome to the main page of our service!</h1>
-  </div>
+  <Container>
+    <Title>Welcome to the main page of our service!</Title>
+  </Container>
 );
 
 export default Home;

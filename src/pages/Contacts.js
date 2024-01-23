@@ -2,20 +2,20 @@ import ContactAdd from '../components/ContactAdd';
 import ContactList from '../components/ContactList';
 import Filter from '../components/Filter';
 
-import css from './Contacts.module.css';
+import { Section, Wrapper, Container, Title } from './ContactsStyles';
 
 const Contacts = () => {
   return (
-    <section className={css.section}>
-      <h1 className={css.title}>Contacts</h1>
-      <div className={css.container}>
-        <div className={css.service}>
+    <Section>
+      <Title>Contacts</Title>
+      <Wrapper>
+        <Container>
           <ContactAdd />
           <Filter />
-        </div>
+        </Container>
         <ContactList />
-      </div>
-    </section>
+      </Wrapper>
+    </Section>
   );
 };
 
