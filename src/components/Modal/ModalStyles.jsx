@@ -1,13 +1,16 @@
-.backdrop {
+import styled from 'styled-components';
+import image from '../../img/background/modal.jpg';
+
+const Backdrop = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-}
+`;
 
-.content {
+const Content = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -21,7 +24,7 @@
       rgb(210, 200, 200, 0.9),
       rgb(215, 200, 200, 0.4)
     ),
-    url(../../img/background/modal.jpg);
+    url(${image});
   background-size: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,4 +32,6 @@
   border-radius: 12px;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-}
+`;
+
+export { Backdrop, Content };
