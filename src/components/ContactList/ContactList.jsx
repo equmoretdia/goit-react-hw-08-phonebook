@@ -10,7 +10,7 @@ import { fetchContacts } from '../../redux/contacts & filter/operations';
 import ContactItem from '../ContactItem';
 import Loader from '../Loader';
 
-import css from './ContactList.module.css';
+import { Wrapper } from './ContactListStyles';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const ContactList = () => {
 
   return (
     <>
-      <ul className={css.wrapper}>
+      <Wrapper>
         {isLoading && !error && (
           <Loader
             height={'60'}
@@ -42,7 +42,7 @@ const ContactList = () => {
               number={contact.number}
             />
           ))}
-      </ul>
+      </Wrapper>
     </>
   );
 };

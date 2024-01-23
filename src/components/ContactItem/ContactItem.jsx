@@ -10,7 +10,7 @@ import ContactUpdate from 'components/ContactUpdate';
 import Loader from '../Loader';
 import Modal from '../Modal';
 
-import css from './ContactItem.module.css';
+import { Item, ButtonGroup, Button } from './ContactItemStyles';
 
 const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -33,19 +33,15 @@ const ContactItem = ({ id, name, number }) => {
 
   return (
     <>
-      <li className={css.item}>
+      <Item>
         <p>
           {name}: {number}
         </p>
-        <div className={css.buttons}>
-          <button className={css.button} type="button" onClick={toggleModal}>
+        <ButtonGroup>
+          <Button type="button" onClick={toggleModal}>
             Update
-          </button>
-          <button
-            className={css.button}
-            type="button"
-            onClick={handleContactDeletion}
-          >
+          </Button>
+          <Button type="button" onClick={handleContactDeletion}>
             {deletedContactId === id ? (
               <Loader
                 height={'16'}
@@ -56,9 +52,9 @@ const ContactItem = ({ id, name, number }) => {
             ) : (
               'Delete'
             )}
-          </button>
-        </div>
-      </li>
+          </Button>
+        </ButtonGroup>
+      </Item>
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <ContactUpdate

@@ -1,4 +1,6 @@
-.item {
+import styled from 'styled-components';
+
+const Item = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,20 +10,20 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   transition: transform 0.1s;
-}
 
-.item:hover {
-  transform: scale(1.02);
-}
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
 
-.buttons {
+const ButtonGroup = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-}
+`;
 
-.button {
+const Button = styled.button`
   display: block;
   width: 90px;
   padding: 10px;
@@ -35,9 +37,11 @@
   border-radius: 12px;
   border: none;
   transition: box-shadow 0.1s, transform 0.1s;
-}
 
-.button:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transform: scale(1.02);
-}
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+  }
+`;
+
+export { Item, ButtonGroup, Button };
