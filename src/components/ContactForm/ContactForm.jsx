@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import Loader from '../Loader';
 
-import css from './ContactForm.module.css';
+import { Form, Label, Input, Button } from './ContactFormStyles';
 
 const ContactForm = ({
   name,
@@ -13,11 +13,10 @@ const ContactForm = ({
   buttonText,
 }) => {
   return (
-    <form className={css.form} onSubmit={handleSubmit}>
-      <label className={css.label} htmlFor="">
+    <Form onSubmit={handleSubmit}>
+      <Label htmlFor="">
         Name
-        <input
-          className={css.input}
+        <Input
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -26,11 +25,10 @@ const ContactForm = ({
           value={name}
           onChange={handleChange}
         />
-      </label>
-      <label className={css.label} htmlFor="">
+      </Label>
+      <Label htmlFor="">
         Number
-        <input
-          className={css.input}
+        <Input
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
@@ -39,8 +37,8 @@ const ContactForm = ({
           value={number}
           onChange={handleChange}
         />
-      </label>
-      <button className={css.button} type="submit">
+      </Label>
+      <Button type="submit">
         {isLoading ? (
           <Loader
             height={'16'}
@@ -51,8 +49,8 @@ const ContactForm = ({
         ) : (
           buttonText
         )}
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 };
 
