@@ -21,7 +21,6 @@ export const register = createAsyncThunk(
         email,
         password,
       });
-      console.log(response);
       setToken(response.data.token);
       return response.data;
     } catch (error) {
@@ -53,7 +52,6 @@ export const logIn = createAsyncThunk(
         email,
         password,
       });
-      console.log(response);
       setToken(response.data.token);
       return response.data;
     } catch (error) {

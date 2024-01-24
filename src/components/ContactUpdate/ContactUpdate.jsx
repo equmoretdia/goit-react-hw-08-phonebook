@@ -4,11 +4,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { updateContact } from '../../redux/contacts & filter/operations';
-import { selectUpdateContactIsLoading } from '../../redux/contacts & filter/selectors';
+import {
+  selectItems,
+  selectUpdateContactIsLoading,
+} from '../../redux/contacts & filter/selectors';
 import ContactForm from '../ContactForm';
 
 const ContactUpdate = ({ contactId, currentName, currentNumber, onSave }) => {
   const dispatch = useDispatch();
+  const items = useSelector(selectItems);
   const isLoading = useSelector(selectUpdateContactIsLoading);
   const [state, setState] = useState({
     id: contactId,
@@ -21,7 +25,43 @@ const ContactUpdate = ({ contactId, currentName, currentNumber, onSave }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    handleContactUpdate();
+    if (
+      items.some(
+        contact =>
+          contact.name.toLowerCase() === name.toLowerCase().trim() &&
+          contact.id !== id
+      )
+    ) {
+      toast.warn(`${name} is already in your contacts`, {
+        position: 'top-right',
+        theme: 'colored',
+      });
+    } else if (
+      items.some(
+        contact => contact.number === number.trim() && contact.id !== id
+      )
+    ) {
+      toast.warn(`${number} is already in your contacts`, {
+        position: 'top-right',
+        theme: 'colored',
+      });
+    } else if (
+      items.some(
+        contact =>
+          contact.name.toLowerCase() === name.toLowerCase().trim() &&
+          contact.number === number.trim()
+      )
+    ) {
+      toast.warn(
+        `Contact "${name}" with number: ${number} is already in your contacts`,
+        {
+          position: 'top-right',
+          theme: 'colored',
+        }
+      );
+    } else {
+      handleContactUpdate();
+    }
   };
 
   const handleChange = e => {
