@@ -19,6 +19,7 @@ const Home = lazy(() => import('../pages/Home'));
 const Contacts = lazy(() => import('../pages/Contacts'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -61,8 +62,7 @@ const App = () => {
             }
           />
         </Route>
-        {/* Default route for non-existent URLs */}
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer
         autoClose={3000}
