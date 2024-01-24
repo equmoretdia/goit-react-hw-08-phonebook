@@ -21,9 +21,11 @@ export const register = createAsyncThunk(
         email,
         password,
       });
+      console.log(response);
       setToken(response.data.token);
       return response.data;
     } catch (error) {
+      console.log(error.message);
       toast.error(`Sorry, error is occurred`, {
         position: 'top-right',
         theme: 'colored',
@@ -41,6 +43,7 @@ export const logIn = createAsyncThunk(
         email,
         password,
       });
+      console.log(response);
       setToken(response.data.token);
       return response.data;
     } catch (error) {

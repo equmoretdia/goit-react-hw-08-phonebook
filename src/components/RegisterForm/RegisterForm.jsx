@@ -1,12 +1,16 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
+import Loader from '../Loader';
 import { register } from '../../redux/auth/operations';
+import { selectIsRegistering } from '../../redux/auth/selectors';
+
 import { Form, Label, Input, Button } from './RegisterFormStyles';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+  const isRegistering = useSelector(selectIsRegistering);
   const [state, setState] = useState({ name: '', email: '', password: '' });
   const { name, email, password } = state;
 
@@ -69,7 +73,18 @@ const RegisterForm = () => {
           onChange={handleChange}
         />
       </Label>
-      <Button type="submit">Register</Button>
+      <Button type="submit">
+        {isRegistering ? (
+          <Loader
+            height={'16'}
+            width={'16'}
+            colors={['#e3e3ee', '#e3e3ee']}
+            size={'s'}
+          />
+        ) : (
+          'Register'
+        )}
+      </Button>
     </Form>
   );
 };

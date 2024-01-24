@@ -1,13 +1,16 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
+import Loader from '../Loader';
 import { logIn } from '../../redux/auth/operations';
+import { selectIsLoggingIn } from '../../redux/auth/selectors';
 
 import { Form, Label, Input, Button } from './LoginFormStyles';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const isLoggingIn = useSelector(selectIsLoggingIn);
   const [state, setState] = useState({ email: '', password: '' });
   const { email, password } = state;
 
@@ -60,7 +63,18 @@ const LoginForm = () => {
           onChange={handleChange}
         />
       </Label>
-      <Button type="submit">Log In</Button>
+      <Button type="submit">
+        {isLoggingIn ? (
+          <Loader
+            height={'16'}
+            width={'16'}
+            colors={['#e3e3ee', '#e3e3ee']}
+            size={'s'}
+          />
+        ) : (
+          'Log In'
+        )}
+      </Button>
     </Form>
   );
 };
