@@ -26,10 +26,20 @@ export const register = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log(error.message);
-      toast.error(`Sorry, error is occurred`, {
-        position: 'top-right',
-        theme: 'colored',
-      });
+      if (error.message === 'Request failed with status code 400') {
+        toast.error(
+          `Registration failed. To create an account, please ensure you provide a valid name, email address, and a password with a minimum length of 7 characters. Make sure all fields are filled correctly, and try again. If you already have an account, please log in with your existing credentials.`,
+          {
+            position: 'top-right',
+            theme: 'colored',
+          }
+        );
+      } else {
+        toast.error(`Sorry, error is occurred`, {
+          position: 'top-right',
+          theme: 'colored',
+        });
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -47,10 +57,21 @@ export const logIn = createAsyncThunk(
       setToken(response.data.token);
       return response.data;
     } catch (error) {
-      toast.error(`Sorry, error is occurred`, {
-        position: 'top-right',
-        theme: 'colored',
-      });
+      console.log(error.message);
+      if (error.message === 'Request failed with status code 400') {
+        toast.error(
+          `Invalid login credentials. Please double-check your email and password, and try again!`,
+          {
+            position: 'top-right',
+            theme: 'colored',
+          }
+        );
+      } else {
+        toast.error(`Sorry, error is occurred`, {
+          position: 'top-right',
+          theme: 'colored',
+        });
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }

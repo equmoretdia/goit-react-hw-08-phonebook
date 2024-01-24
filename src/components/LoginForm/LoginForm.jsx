@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 import Loader from '../Loader';
 import { logIn } from '../../redux/auth/operations';
@@ -24,18 +24,18 @@ const LoginForm = () => {
     setState(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const formReset = () => {
-    setState({ email: '', password: '' });
-  };
+  // const formReset = () => {
+  //   setState({ email: '', password: '' });
+  // };
 
   const handleLogIn = async () => {
     try {
       await dispatch(logIn(state));
-      toast.success('Welcome! You have been logged in successfully', {
-        position: 'top-right',
-        theme: 'colored',
-      });
-      formReset();
+      // toast.success('Welcome! You have been logged in successfully', {
+      //   position: 'top-right',
+      //   theme: 'colored',
+      // });
+      // formReset();
     } catch (rejectedValueOrSerializedError) {
       console.log(rejectedValueOrSerializedError);
     }
