@@ -61,8 +61,8 @@ const App = () => {
               />
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer
         autoClose={3000}
